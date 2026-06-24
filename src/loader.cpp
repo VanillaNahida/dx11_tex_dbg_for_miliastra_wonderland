@@ -142,7 +142,7 @@ auto main(int argc, char* argv[]) -> int try {
     std::string target_process_name = args["--target"] | args["-t"] | "";
     bool multi_texture = static_cast<bool>(args["--multi"]);
 
-    console::info("DirectX 11 Texture Debugger {}v1.0.3{}", ansi::blue, ansi::reset);
+    console::info("DirectX 11 Texture Debugger {}v1.0.4{}", ansi::blue, ansi::reset);
     console::info("作者：{}SyrieYume & VanillaNahida{}", ansi::blue, ansi::reset);
     console::warn("免责声明：");
     console::warn("本项目仅供图形学学习、底层API拦截技术研究以及自研D3D11程序的调试使用。");
@@ -150,7 +150,7 @@ auto main(int argc, char* argv[]) -> int try {
     console::warn("因{}不当使用{}导致的封号、法律纠纷与本项目无关，由使用者自行承担全部风险与责任。", ansi::orange, ansi::reset);
     console::warn("原作者：{}@SyrieYume{} 源仓库地址：{}https://github.com/SyrieYume/dx11_tex_dbg{}", ansi::blue, ansi::reset, ansi::blue, ansi::reset);
     console::warn("本程序以{}GPL-3.0 license{}协议开源在此处：{}https://github.com/VanillaNahida/dx11_tex_dbg_for_mw{}", ansi::blue, ansi::reset, ansi::blue, ansi::reset);
-    console::info("Target: '{}{}{}'", ansi::blue, target_process_name, ansi::reset);
+    console::info("Target Process Name: '{}{}{}'", ansi::blue, target_process_name, ansi::reset);
 
     HMODULE module = LoadLibraryA(module_path.c_str());
     if(!module)

@@ -20,12 +20,12 @@ BEGIN
     BEGIN
         BLOCK "080404b0"
         BEGIN
-            VALUE "CompanyName", "SyrieYume"
-            VALUE "FileVersion", "1.0.3.0"
+            VALUE "CompanyName", "SyrieYume & VanillaNahida"
+            VALUE "FileVersion", "1.0.4.0"
             VALUE "InternalName", "dx11_tex_dbg"
             VALUE "OriginalFilename", "dx11_tex_dbg.exe"
             VALUE "ProductName", "dx11_tex_dbg"
-            VALUE "ProductVersion", "1.0.3.0"
+            VALUE "ProductVersion", "1.0.4.0"
         END
     END
 
