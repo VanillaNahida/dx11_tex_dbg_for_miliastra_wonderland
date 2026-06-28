@@ -139,7 +139,7 @@ auto main(int argc, char* argv[]) -> int try {
 
     std::vector<int> sizes = args["--sizes"] | "512,256,128" | std::views::split(',') | convert_to_int | std::ranges::to<std::vector<int>>();
     std::string module_path = args["--module"] | args["-m"] | "dx11_texture_debugger.dll";
-    std::string target_process_name = args["--target"] | args["-t"] | "";
+    std::string target_process_name = args["--target"] | args["-t"] | "YuanShen.exe";
     bool multi_texture = static_cast<bool>(args["--multi"]);
 
     console::info("DirectX 11 Texture Debugger {}v1.0.4{}", ansi::blue, ansi::reset);
