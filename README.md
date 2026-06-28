@@ -15,7 +15,7 @@
 </div>
 
 ## 补档的视频
-完整视频：https://www.xcnahida.cn/?p=KrDu8yDD
+完整视频：https://www.xcnahida.cn/archives/KrDu8yDD
 
 
 https://github.com/user-attachments/assets/8cb76924-928b-41bc-9205-803301fe200b

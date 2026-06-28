@@ -82,7 +82,7 @@ auto get_module_func(HMODULE module, const char* func_name) -> Func {
 }
 
 
-auto open_file_picker(const wchar_t* filter, const std::filesystem::path& initial_dir = L"") -> std::wstring {
+auto open_file_picker(const wchar_t* filter, const std::filesystem::path& initial_dir = L"", const wchar_t* title = nullptr) -> std::wstring {
     OPENFILENAMEW ofn = {};
     wchar_t file_path[MAX_PATH] = {0};
     
@@ -92,6 +92,7 @@ auto open_file_picker(const wchar_t* filter, const std::filesystem::path& initia
     ofn.lpstrFilter = filter;
     ofn.nFilterIndex = 1;
     ofn.lpstrInitialDir = initial_dir.c_str();
+    ofn.lpstrTitle = title;
     ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR;
 
     if (GetOpenFileNameW(&ofn) == true)
@@ -150,6 +151,7 @@ auto main(int argc, char* argv[]) -> int try {
     console::warn("因{}不当使用{}导致的封号、法律纠纷与本项目无关，由使用者自行承担全部风险与责任。", ansi::orange, ansi::reset);
     console::warn("原作者：{}@SyrieYume{} 源仓库地址：{}https://github.com/SyrieYume/dx11_tex_dbg{}", ansi::blue, ansi::reset, ansi::blue, ansi::reset);
     console::warn("本程序以{}GPL-3.0 license{}协议开源在此处：{}https://github.com/VanillaNahida/dx11_tex_dbg_for_mw{}", ansi::blue, ansi::reset, ansi::blue, ansi::reset);
+    console::info("{}如果对你有帮助，请点一个Star，感谢你的使用！{}", ansi::blue, ansi::reset);
     console::info("Target Process Name: '{}{}{}'", ansi::blue, target_process_name, ansi::reset);
 
     HMODULE module = LoadLibraryA(module_path.c_str());
@@ -162,12 +164,16 @@ auto main(int argc, char* argv[]) -> int try {
     std::vector<std::pair<std::vector<uint8_t>, uint64_t>> textures;
 
     if (multi_texture) {
-        console::info("启用多图模式");
+        console::info("已启用多图模式");
         console::info("请选择用于 128x128 的图片，该图片将用在聊天和好友列表中作为小图使用：");
-        std::wstring texture_file_128 = open_file_picker(L"图片文件(*.jpg;*.jpeg;*.png;*.bmp)\0*.jpg;*.jpeg;*.png;*.bmp\0All Files\0*.*\0");
+        std::wstring texture_file_128 = open_file_picker(L"图片文件(*.jpg;*.jpeg;*.png;*.bmp)\0*.jpg;*.jpeg;*.png;*.bmp\0All Files\0*.*\0", {}, L"请选择用于 128x128 的图片，该图片将用在聊天和好友列表中作为小图使用");
+        if (texture_file_128.empty())
+            throw std::runtime_error(std::format("Failed to select texture file 128x128: {}{}", ansi::red, ansi::reset));
         
         console::info("请选择用于 512x512 的图片，该图片将用在点击查看头像后显示的大图片：");
-        std::wstring texture_file_512 = open_file_picker(L"图片文件(*.jpg;*.jpeg;*.png;*.bmp)\0*.jpg;*.jpeg;*.png;*.bmp\0All Files\0*.*\0");
+        std::wstring texture_file_512 = open_file_picker(L"图片文件(*.jpg;*.jpeg;*.png;*.bmp)\0*.jpg;*.jpeg;*.png;*.bmp\0All Files\0*.*\0", {}, L"请选择用于 512x512 的图片，该图片将用在点击查看头像后显示的大图片");
+        if (texture_file_512.empty())
+            throw std::runtime_error(std::format("Failed to select texture file 512x512: {}{}", ansi::red, ansi::reset));
 
         std::vector<int> size_128{128};
         std::vector<int> size_512{512};
@@ -178,7 +184,7 @@ auto main(int argc, char* argv[]) -> int try {
         textures.insert(textures.end(), textures_128.begin(), textures_128.end());
     } else {
         console::info("未启用双头像支持，将使用默认的单头像模式。请在打开的窗口中选择头像文件。");
-        std::wstring texture_file = open_file_picker(L"图片文件(*.jpg;*.jpeg;*.png;*.bmp)\0*.jpg;*.jpeg;*.png;*.bmp\0All Files\0*.*\0");
+        std::wstring texture_file = open_file_picker(L"图片文件(*.jpg;*.jpeg;*.png;*.bmp)\0*.jpg;*.jpeg;*.png;*.bmp\0All Files\0*.*\0", {}, L"请选择头像文件");
         textures = load_texture(texture_file.c_str(), sizes);
     }
     console::info("已成功加载图片，请在游戏内点击自定义头像旁边的相机按钮然后继续...", sizes[0], sizes[1]);
