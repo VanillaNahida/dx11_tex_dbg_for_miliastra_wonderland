@@ -25,6 +25,8 @@ https://github.com/user-attachments/assets/8cb76924-928b-41bc-9205-803301fe200b
 <summary>项目原理分析：DirectX 11 Texture Debugger</summary>
 <br>
 <br>
+
+## 项目原理分析：DirectX 11 Texture Debugger
 这个项目是一个 **DirectX 11 纹理调试器**（`dx11_tex_dbg_for_mw`），其核心功能是 **通过 Hook（钩子）技术，将用户自定义的图片注入到目标进程的 D3D11 纹理读取流程中**，从而替换游戏中某些纹理（比如头像贴图）。
 
 整个项目由两个二进制组件构成：
