@@ -4,7 +4,7 @@
 > 目前该项目已在6.7版本失效，拍照会直接提示头像有误，请静等作者更新程序修复。
 
 <div align="center">
-<img width="1080" alt="90bf76f0d6f63c181cd2c2908fe110e1" src="https://github.com/user-attachments/assets/40d81d4d-b601-4b23-8ab0-d57a62241760" />
+  <img width="1080" alt="90bf76f0d6f63c181cd2c2908fe110e1" src="https://github.com/user-attachments/assets/40d81d4d-b601-4b23-8ab0-d57a62241760" />
 </div>
 
 # 警告：
