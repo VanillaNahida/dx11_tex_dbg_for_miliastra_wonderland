@@ -1,10 +1,22 @@
 ![:name](https://count.getloli.com/@dx11_tex_dbg_for_mw?name=dx11_tex_dbg_for_mw&theme=minecraft&padding=6&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
 
 >[!TIP]
-> 目前该项目已在6.7版本失效，拍照会直接提示头像有误，请静等作者更新程序修复。
+> 由于官方加强了校验机制，目前该项目已在6.7版本失效，拍照会直接提示头像有误。  
+> 最新版本的更换头像方法为了防止恶意滥用，暂不公开源码和二进制文件。  
+> 请在需要时联系我寻求帮助：https://www.xcnahida.cn/contact
 
 <div align="center">
   <img width="1080" alt="90bf76f0d6f63c181cd2c2908fe110e1" src="https://github.com/user-attachments/assets/40d81d4d-b601-4b23-8ab0-d57a62241760" />
+  <p>
+    由于官方加强了校验机制，目前该项目已在6.7版本失效，拍照会直接提示头像有误。  
+  </p>
+</div>
+<br>
+<div align="center">
+  <img width="1080" alt="0c7b88ab16923afd18e16f04856aeadb" src="https://github.com/user-attachments/assets/eeb2ba30-12e2-4bff-a79f-60da3b3bf2ed" />
+  <p>
+    目前可用的方法  
+  </p>
 </div>
 
 # 警告：
